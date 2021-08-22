@@ -33,6 +33,8 @@ app.use(`${api}/categories`, categoriesRouter);
 app.use(`${api}/users`, userRouter);
 app.use(`${api}/orders`, orderRouter);
 
+const port = process.env.PORT || 5000;
+
 mongoose
   .connect(process.env.CON_STRING, {
     useNewUrlParser: true,
@@ -46,6 +48,6 @@ mongoose
     console.log(err);
   });
 
-app.listen(3000, () => {
-  console.log('The serve is started now http://localhost:3000');
+app.listen(port, () => {
+  console.log(`The serve is started now on port ${port}`);
 });
